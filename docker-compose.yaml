@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  flexget:
+    image: kmb32123/flexget-dockerfile
+    environment:
+      - TORRENT_PLUGIN=transmission
+    volumes:
+      - "./flexget:/flexget"
+      - "./watch:/output"
+
+  transmission:
+    image: dperson/transmission
+    environment:
+        - TRUSER=user
+        - TRPASSWD=secret-password
+    ports:
+      - "9991:9091"
+      - "51413:51413"
+      - "51413:51413/udp"
+    volumes:
+      - "./transmission:/var/lib/transmission-daemon"
+      - "./watch:/watch"

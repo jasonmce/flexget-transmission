@@ -1,0 +1,10 @@
+schedules:
+  - tasks: pbskids
+    interval:
+      minutes: 1
+
+tasks:
+  pbskids:
+    rss: https://www.democracynow.org/torrents.xml
+    accept_all: yes
+    download: /output
