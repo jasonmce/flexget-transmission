@@ -1,0 +1,5 @@
+{
+    "download-dir": "/output",
+    "watch-dir": "/to_download",
+    "watch-dir-enabled": true
+}

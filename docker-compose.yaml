@@ -2,22 +2,24 @@ version: "2"
 
 services:
   flexget:
-    image: kmb32123/flexget-dockerfile
-    environment:
-      - TORRENT_PLUGIN=transmission
+    image: monoetharyus/rpi-flexget
+    entrypoint: /start.sh
     volumes:
-      - "./flexget:/flexget"
+      - "./flexget:/root/.flexget"
       - "./watch:/output"
+    ports:
+      - 5050:5050
 
   transmission:
-    image: dperson/transmission
+    image: jaymoulin/transmission 
     environment:
-        - TRUSER=user
-        - TRPASSWD=secret-password
+        - USERNAME=username
+        - PASSWORD=secretp4ssword
     ports:
       - "9991:9091"
       - "51413:51413"
       - "51413:51413/udp"
     volumes:
-      - "./transmission:/var/lib/transmission-daemon"
-      - "./watch:/watch"
+      - "./transmission:/root/.config/transmission-daemon"
+      - "./watch:/to_download"
+      - "./output:/output"
