@@ -1,0 +1,17 @@
+# Sample configuration.
+# Checks the democracynow torrent feed hourly and downloads
+# new video files.
+
+schedules:
+  # Process any changes in the democracynow RSS feed
+  # video list every sixty minutes.
+  - tasks: democracynow
+    interval:
+      minutes: 60
+
+tasks:
+  # Check democracynow for new items in their RSS feed.
+  democracynow:
+    rss: https://www.democracynow.org/torrents.xml
+    accept_all: yes
+    download: /output

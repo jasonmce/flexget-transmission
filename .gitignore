@@ -5,11 +5,11 @@ watch
 transmission.env
 
 # Most everything in transmission is created on first boot.
-transmission
+transmission/**
  
 # This shouldn't be updated unless forced to add or change defaults.
 transmission/info/settings.json
 
 # Do not save any flexget/ files except the sample.config.yml example.
-flexget
+flexget/**
 !flexget/sample.config.yml
