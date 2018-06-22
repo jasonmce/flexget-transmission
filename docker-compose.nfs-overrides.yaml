@@ -1,0 +1,33 @@
+---
+version: "3"
+
+volumes:
+  nfs-transmission:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=${NFS_HOST},rw
+      device: ":${NFS_PATH}/transmission"
+  nfs-watch:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=${NFS_HOST},rw
+      device: ":${NFS_PATH}/watch"
+  nfs-flexget:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=${NFS_HOST},rw
+      device: ":${NFS_PATH}/flexget"
+
+services:
+  flexget:
+    volumes:
+      - nfs-flexget:/flexget
+      - nfs-watch:/output
+
+  transmission:
+    volumes:
+      - nfs-transmission:/var/lib/transmission-daemon
+      - nfs-watch:/watch

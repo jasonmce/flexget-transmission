@@ -3,13 +3,17 @@ watch
 
 # Don't store container-specific overrides.
 transmission.env
+nfs.env
 
 # Most everything in transmission is created on first boot.
 transmission/**
- 
+
 # This shouldn't be updated unless forced to add or change defaults.
 transmission/info/settings.json
 
 # Do not save any flexget/ files except the sample.config.yml example.
 flexget/**
 !flexget/sample.config.yml
+
+# Ignore any IDE project files.
+.idea

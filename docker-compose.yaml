@@ -1,3 +1,4 @@
+---
 version: "3"
 
 services:
@@ -13,7 +14,7 @@ services:
     image: dperson/transmission
     # View the transmission_sample.env file for more instructions.
     env_file:
-        - transmission.env
+        - transmission_sample.env
     ports:
       - "9991:9091"
       - "51413:51413"
