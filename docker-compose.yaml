@@ -4,6 +4,7 @@ version: "3"
 services:
   flexget:
     image: kmb32123/flexget-dockerfile
+    restart: on-failure
     environment:
       - TORRENT_PLUGIN=transmission
     volumes:
@@ -12,9 +13,10 @@ services:
 
   transmission:
     image: dperson/transmission
+    restart: on-failure
     # View the transmission_sample.env file for more instructions.
     env_file:
-        - transmission_sample.env
+        - transmission.env
     ports:
       - "9991:9091"
       - "51413:51413"

@@ -3,6 +3,9 @@
 # Attempt to load nfs.env if it exists.   Could also be source $FILE 2> /dev/null command.
 # @Todo validate the file exists and gives non-example values for all variables.
 test -f nfs.env && source nfs.env
+test -f transmission.env && source transmission.env
+#echo $NFS_HOST
+#echo $TRUSER
 
 # Run docker-compose with our additional nfs configuration.
 docker-compose -f docker-compose.yaml -f docker-compose.nfs-overrides.yaml $@
